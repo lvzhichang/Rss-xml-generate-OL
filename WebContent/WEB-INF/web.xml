@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<web-app version="2.5"   
+    xmlns="http://java.sun.com/xml/ns/javaee"   
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee   
+    http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">  
+	<servlet>  
+		<!-- 类名 -->  
+		<servlet-name>PushServ</servlet-name>  
+		<!-- 所在的包 -->  
+		<servlet-class>onem.cjq.web.main.RssServlet</servlet-class>  
+	</servlet>  
+	<servlet-mapping>  
+		<servlet-name>PushServ</servlet-name>  
+		  <!-- 访问的网址 -->  
+		<url-pattern>/PushServ</url-pattern>  
+	</servlet-mapping>  
+	
+	<servlet>  
+		<!-- 类名 -->  
+		<servlet-name>BroServ</servlet-name>  
+		<!-- 所在的包 -->  
+		<servlet-class>onem.cjq.web.main.RssBroServlet</servlet-class>  
+	</servlet>  
+	<servlet-mapping>  
+		<servlet-name>BroServ</servlet-name>  
+		  <!-- 访问的网址 -->  
+		<url-pattern>/bro</url-pattern>  
+	</servlet-mapping>  
+	
+</web-app>  
