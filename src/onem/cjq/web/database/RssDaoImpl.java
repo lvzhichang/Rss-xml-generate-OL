@@ -6,9 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
-
 import org.apache.commons.lang.StringEscapeUtils;
 
 import onem.cjq.web.mod.RssEntry;
@@ -16,7 +13,6 @@ import onem.cjq.web.mod.RssEntry;
 public class RssDaoImpl implements IRssDao{
 	private Connection conn=null;
 	private PreparedStatement pstmt=null;
-	private static Lock lock=new ReentrantLock();
 	
 	public RssDaoImpl(Connection conn) {
 		// TODO Auto-generated constructor stub
@@ -26,7 +22,6 @@ public class RssDaoImpl implements IRssDao{
 	@Override
 	public int add(RssEntry entry) throws Exception {
 		// TODO Auto-generated method stub
-		lock.lock();
 		System.out.println("add start");
 		String sql="insert into RSS (XML,WEB_LINK,ENCODE,GLOBAL_REG,ITEM_REG," + 
 				"FEED_TITLE,FEED_LINK,FEED_DESR," + 
@@ -51,7 +46,6 @@ public class RssDaoImpl implements IRssDao{
 			ResultSet rs =this.pstmt.executeQuery();
 			if(rs.next())
 			{
-				lock.unlock();
 				System.out.println("add end");
 				int i=rs.getInt(1);
 				this.pstmt.close();	
@@ -60,14 +54,12 @@ public class RssDaoImpl implements IRssDao{
 		}
 		this.pstmt.close();	
 		System.out.println("add end");
-		lock.unlock();
 		return -1;
 	}
 
 	@Override
 	public boolean deleteById(int i) throws SQLException {
 		// TODO Auto-generated method stub
-		lock.lock();
 		System.out.println("delete start");
 		boolean flag=false;
 		String sql="DELETE FROM RSS WHERE ID=?";
@@ -78,14 +70,12 @@ public class RssDaoImpl implements IRssDao{
 		}
 		this.pstmt.close();	
 		System.out.println("delete end");
-		lock.unlock();
 		return flag;
 	}
 
 	@Override
 	public boolean updateAllById(int i, RssEntry entry) throws SQLException {
 		// TODO Auto-generated method stub
-		lock.lock();
 		System.out.println("update start");
 		boolean flag=false;
 		String sql="UPDATE RSS SET XML=?,WEB_LINK=?,ENCODE=?,GLOBAL_REG=?,ITEM_REG=?,"
@@ -110,14 +100,12 @@ public class RssDaoImpl implements IRssDao{
 		}
 		this.pstmt.close();	
 		System.out.println("update end");
-		lock.unlock();
 		return flag;
 	}
 
 	@Override
 	public RssEntry findById(int i) throws SQLException {
 		// TODO Auto-generated method stub
-		lock.lock();
 		System.out.println("find id start");
 		RssEntry re=null;
 		String sql="SELECT * from RSS WHERE ID =?";
@@ -141,14 +129,12 @@ public class RssDaoImpl implements IRssDao{
 		}
 		this.pstmt.close() ;
 		System.out.println("find id end");
-		lock.unlock();
 		return re;
 	}
 
 	@Override
 	public List<RssEntry> findAll() throws SQLException {
 		// TODO Auto-generated method stub
-		lock.lock();
 		System.out.println("find all start");
 		List<RssEntry> list=new ArrayList<RssEntry>();
 		String sql="SELECT * from RSS";
@@ -172,7 +158,6 @@ public class RssDaoImpl implements IRssDao{
 		}
 		this.pstmt.close() ;
 		System.out.println("find all end");
-		lock.unlock();
 		return list;
 	}
 }

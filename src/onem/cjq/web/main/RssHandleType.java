@@ -1,7 +1,7 @@
 package onem.cjq.web.main;
 
 public enum RssHandleType {
-	RSS_LINK(1),RSS_EXTRACT(2),RSS_GENERATE(3);
+	RSS_LINK(1),RSS_EXTRACT(2),RSS_GENERATE(3),RSS_DELETE(4);
 	
 	@SuppressWarnings("unused")
 	private final int value;

@@ -117,6 +117,14 @@ public class RssServlet extends HttpServlet{
 				}
 				
 				break;
+			case RSS_DELETE:
+				try {
+					rmt.myNotify("del", new Integer(reqArray[1]));
+					new RssDaoProxy().deleteById(new Integer(reqArray[1]));
+				}catch (Exception e) {
+					e.printStackTrace();
+				}
+				break;
 		}		
 		req.getSession().setAttribute("RssEntry", re);
 		JSONArray jsonResult=JSONArray.fromObject(returnResult);
