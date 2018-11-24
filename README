@@ -1,5 +1,8 @@
-仿照 feed43 做得xml生成器
+仿照 feed43 做得在线生成器
 
+jsp
+sqlite
+java 1.8
+tomcat 8.5
 
-
-
+可增删改查，后台自动执行更新任务
