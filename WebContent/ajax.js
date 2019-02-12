@@ -54,3 +54,14 @@ function RssGenerate(){
 	var jsonR=JSON.parse(ret);
 	generate_data.innerHTML="<xmp>"+jsonR[0]+"</xmp>";
 }
+
+function RssDelete(idx){
+	var dataArray=new Array();
+	dataArray.push(4);
+	dataArray.push(idx);
+
+	var ret=RssAction(dataArray).responseText;
+	var jsonR=JSON.parse(ret);
+	if(jsonR[0]=="true")
+		window.location.reload();
+}

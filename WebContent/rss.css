@@ -24,3 +24,8 @@ h1,h2,h3,p
 	width: 500px;
 	margin: auto;
 }
+
+table,th,td
+{
+border:1px solid blue;
+}

@@ -118,9 +118,14 @@ public class RssServlet extends HttpServlet{
 				
 				break;
 			case RSS_DELETE:
+				boolean flag;
 				try {
 					rmt.myNotify("del", new Integer(reqArray[1]));
-					new RssDaoProxy().deleteById(new Integer(reqArray[1]));
+					flag=new RssDaoProxy().deleteById(new Integer(reqArray[1]));
+					if(flag)					
+						returnResult=new String[] {"true"};
+					else
+						returnResult=new String[] {"false"};
 				}catch (Exception e) {
 					e.printStackTrace();
 				}
