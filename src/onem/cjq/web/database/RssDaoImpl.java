@@ -29,17 +29,17 @@ public class RssDaoImpl implements IRssDao{
 				+ "values(?,?,?,?,?,?,?,?,?,?,?)";
 		this.pstmt=this.conn.prepareStatement(sql);
 		//this.pstmt.setInt(1,1);
-		this.pstmt.setString(1,StringEscapeUtils.escapeSql(entry.getXML()));
-		this.pstmt.setString(2,StringEscapeUtils.escapeSql(entry.getWEB_LINK()));
-		this.pstmt.setString(3,StringEscapeUtils.escapeSql(entry.getENCODE()));
-		this.pstmt.setString(4,StringEscapeUtils.escapeSql(entry.getGLOBAL_REG()));
-		this.pstmt.setString(5,StringEscapeUtils.escapeSql(entry.getITEM_REG()));
-		this.pstmt.setString(6,StringEscapeUtils.escapeSql(entry.getFEED_TITLE()));
-		this.pstmt.setString(7,StringEscapeUtils.escapeSql(entry.getFEED_LINK()));
-		this.pstmt.setString(8,StringEscapeUtils.escapeSql(entry.getFEED_DESR()));
-		this.pstmt.setString(9,StringEscapeUtils.escapeSql(entry.getITEM_TITLE_FORMAT()));
-		this.pstmt.setString(10,StringEscapeUtils.escapeSql(entry.getITEM_LINK_FORMAT()));
-		this.pstmt.setString(11,StringEscapeUtils.escapeSql(entry.getITEM_DESR_FORMAT()));
+		this.pstmt.setString(1,entry.getXML());
+		this.pstmt.setString(2,entry.getWEB_LINK());
+		this.pstmt.setString(3,entry.getENCODE());
+		this.pstmt.setString(4,entry.getGLOBAL_REG());
+		this.pstmt.setString(5,entry.getITEM_REG());
+		this.pstmt.setString(6,entry.getFEED_TITLE());
+		this.pstmt.setString(7,entry.getFEED_LINK());
+		this.pstmt.setString(8,entry.getFEED_DESR());
+		this.pstmt.setString(9,entry.getITEM_TITLE_FORMAT());
+		this.pstmt.setString(10,entry.getITEM_LINK_FORMAT());
+		this.pstmt.setString(11,entry.getITEM_DESR_FORMAT());
 		if(this.pstmt.executeUpdate()>0){
 			sql="select last_insert_rowid() from RSS";
 			this.pstmt=this.conn.prepareStatement(sql);
@@ -83,17 +83,17 @@ public class RssDaoImpl implements IRssDao{
 				+ "ITEM_TITLE_FORMAT=?,ITEM_LINK_FORMAT=?,ITEM_DESR_FORMAT=?"
 				+ "WHERE ID = ?";
 		this.pstmt=this.conn.prepareStatement(sql);
-		this.pstmt.setString(1,StringEscapeUtils.escapeSql(entry.getXML()));
-		this.pstmt.setString(2,StringEscapeUtils.escapeSql(entry.getWEB_LINK()));
-		this.pstmt.setString(3,StringEscapeUtils.escapeSql(entry.getENCODE()));
-		this.pstmt.setString(4,StringEscapeUtils.escapeSql(entry.getGLOBAL_REG()));
-		this.pstmt.setString(5,StringEscapeUtils.escapeSql(entry.getITEM_REG()));
-		this.pstmt.setString(6,StringEscapeUtils.escapeSql(entry.getFEED_TITLE()));
-		this.pstmt.setString(7,StringEscapeUtils.escapeSql(entry.getFEED_LINK()));
-		this.pstmt.setString(8,StringEscapeUtils.escapeSql(entry.getFEED_DESR()));
-		this.pstmt.setString(9,StringEscapeUtils.escapeSql(entry.getITEM_TITLE_FORMAT()));
-		this.pstmt.setString(10,StringEscapeUtils.escapeSql(entry.getITEM_LINK_FORMAT()));
-		this.pstmt.setString(11,StringEscapeUtils.escapeSql(entry.getITEM_DESR_FORMAT()));
+		this.pstmt.setString(1,entry.getXML());
+		this.pstmt.setString(2,entry.getWEB_LINK());
+		this.pstmt.setString(3,entry.getENCODE());
+		this.pstmt.setString(4,entry.getGLOBAL_REG());
+		this.pstmt.setString(5,entry.getITEM_REG());
+		this.pstmt.setString(6,entry.getFEED_TITLE());
+		this.pstmt.setString(7,entry.getFEED_LINK());
+		this.pstmt.setString(8,entry.getFEED_DESR());
+		this.pstmt.setString(9,entry.getITEM_TITLE_FORMAT());
+		this.pstmt.setString(10,entry.getITEM_LINK_FORMAT());
+		this.pstmt.setString(11,entry.getITEM_DESR_FORMAT());
 		this.pstmt.setInt(12, i);
 		if(this.pstmt.executeUpdate()>0){
 			flag=true;
